@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/styling.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body class="bg-info text-white" background="img/paris.jpg">
+
+  <div class="container text-center">
+
+      <h1 class="display-1 mt-3">La Belle Vie</h1>
+      <p class="lead mb-3">votre guide dans la nuit parisienne.</p>
+        <button class="btn btn-primary" type="button" id="cart" data-toggle="popover" title="Popover title" data-content="Prix total :">Panier : <span class="badge" id="getCount"></span>
+        </button>
+
+
+        <div class="input-group input-group-sm" id="search-window">
+          <input type="text" class="form-control mt-3" placeholder="Recherche" aria-describedby="sizing-addon3">
+        </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="">
+        Ce soir
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="">
+        Cette semaine
+        </label>
+      </div>
+
+
+
+    <div class="container pt-2">
+      <!-- about -->
+    <table id="my-table">
+      <div class="row">
+        <div class="col">
+          <img src="img/animalz.jpg" class="image mb-1 rounded mx-auto d-block" height="220">
+          <div id="animalz"><h2>ANIMALZ</h2><button type="button" class="btn btn-danger ml-2">-</button><button type="button" class="btn btn-success ma-1" id="increase">+</button><p class="ticket-price" id="getPrice">45€</p></div>
+        </div>
+        <div class="col">
+          <img src="img/fete-musique.jpg" class="image mb-1 rounded mx-auto d-block" height="220">
+          <div id="fete-musique"><h2>Fete de la Musique</h2><button type="button" class="btn btn-danger ml-2">-</button><button type="button" class="btn btn-success ma-1" id="increase-fete-musique">+</button><p class="ticket-price">5€</p></div>
+        </div>
+        <div class="col">
+          <img src="img/festival-jazz.jpg" class="image mb-1 rounded mx-auto d-block" height="220">
+          <div id="festival-jazz"><h2>Festival Jazz</h2><button type="button" class="btn btn-danger ml-2">-</button><button type="button" class="btn btn-success ma-1">+</button><p class="ticket-price">20€</p></div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col">
+            <img src="img/jungle-juice.jpg" class="image mb-1 rounded mx-auto d-block" height="220">
+            <div id="jungle-juice"><h2>Jungle Juice</h2><button type="button" class="btn btn-danger ml-2">-</button><button type="button" class="btn btn-success ma-1">+</button><p class="ticket-price">25€</p></div>
+          </div>
+          <div class="col">
+            <img src="img/villette-sonique.jpg" class="image mb-1 rounded mx-auto d-block" height="220">
+            <div id="villette-sonique"><h2>Villette Sonique</h2><button type="button" class="btn btn-danger ml-2">-</button><button type="button" class="btn btn-success ma-1">+</button><p class="ticket-price">17€</p></div>
+          </div>
+          <div class="col">
+            <img src="img/festival-paris.jpg" class="image mb-1 rounded mx-auto d-block" height="220">
+            <div id="festival-paris"><h2>Festival de Paris</h2><button type="button" class="btn btn-danger ml-2">-</button><button type="button" class="btn btn-success ma-1">+</button><p class="ticket-price">10€</p></div>
+          </div>
+      </div>
+    </table>
+      <!-- /about -->
+    </div>
+
+  </div> <!-- /container -->
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="js/counter.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

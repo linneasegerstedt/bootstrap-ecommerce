@@ -1,0 +1,28 @@
+#cart  {
+    color: white;
+}
+
+.popover-title {
+    color: blue;
+    font-size: 15px;
+}
+
+.popover-content {
+    color: black;
+    font-size: 10px;
+}
+
+#search-window {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.form-check {
+  margin: auto;
+  width: 50%;
+}
+
+.image {
+  height: 220;
+}
