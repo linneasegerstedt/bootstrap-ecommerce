@@ -8,25 +8,20 @@ var festivalJazzCount = 0;
 var jungleJuiceCount = 0;
 var villetteSoniqueCount = 0;
 var eventList = [];
-var numberOfTickets = {};
-var allPrices = [45, 55, 10, 5, 17, 25];
+var numberOfTickets = {}; // total number of clicks; all events
 var totalPrice = 0;
+var ticketPrices;
+var ticketPrice;
+var testPrice;
 
 var increaseButton = document.getElementsByClassName("btn-success");
 var decreaseButton = document.getElementsByClassName("btn-danger");
 
-var price = document.getElementsByClassName("ticket-price");
-
+  // Increase button
 for (var i = 0; i < increaseButton.length; i++) {
       increaseButton[i].addEventListener("click", function() {
-        // get prices dynamically from innerHTML of id=getPrice
-        ticketPrice = allPrices[0];
-        document.getElementById("getPrice").innerHTML = ticketPrice;
-        totalPrice += ticketPrice;
         count++;
         document.getElementById("getCount").innerHTML = count;
-        console.log(ticketPrice[i]);
-        // take id from outer HTML; SUSPEND this value from eventList
         var newEvent = $(this).parent().prop("id");
         console.log(newEvent);
         switch (newEvent) {
@@ -57,17 +52,39 @@ for (var i = 0; i < increaseButton.length; i++) {
         };
  });
 }
+  // change of total price
+function changeTotalPrice(clickedButton, value) {
+  ticketPrice = clickedButton.parentElement.getElementsByClassName("ticket-price")[0].innerHTML;
+  ticketPrice = parseInt(getNumber(ticketPrice));
+  if (value == "decrease") {
+    if (totalPrice > ticketPrice) {
+    totalPrice -= ticketPrice;
+    console.log("totalPrice > ticketPrice");
+    } else {
+    totalPrice = 0;
+    console.log("totalPrice <= ticketPrice");
+    }
+  console.log("totalPrice after decrease: " + totalPrice);
+  }
+   else {
+   totalPrice += ticketPrice;
+   console.log("totalPrice after increase: " + totalPrice);
+  }
+ };
 
+
+ // Convert nn€ => nn
+function getNumber(ticketPrice) {
+  var numb = ticketPrice.match(/\d/g);
+  numb = numb.join("");
+  return numb;
+}
+
+  // Decrease button
  for (var i = 0; i < decreaseButton.length; i++) {
        decreaseButton[i].addEventListener("click", function() {
-         count = decrease(count);
-         // get prices dynamically from innerHTML of id=getPrice
-         ticketPrice = allPrices[0];
-         totalPrice -= ticketPrice;
-         console.log(JSON.stringify(numberOfTickets));
          document.getElementById("getCount").innerHTML = count;
-         var newEvent = $(this).parent().prop("id");
-         // take id from outer HTML; SUSPEND this value from eventList
+         count = decrease(count);
          var newEvent = $(this).parent().prop("id");
          console.log(newEvent);
          //pushUnique(newEvent);
@@ -111,27 +128,19 @@ for (var i = 0; i < increaseButton.length; i++) {
     return count;
   }
 
-
-  function pushUnique(newEvent) {
-    console.log("newEvent: " + newEvent);
-    console.log("eventList: " + eventList);
-    if (eventList.find(existingEvent)) {
-      console.log("event already in list!");
-    } else {
-       eventList.push(newEvent);
-     }
-      return eventList;
-}
-   // To check if event already in list
-   function existingEvent(newEvent) {
-     for (i = 0; i < eventList.length; i++)
-     return newEvent == eventList[i];
-   }
-
+  // Panier
   document.getElementById("cart").onclick = function (e) {
           $('[data-toggle="popover"]').popover();
 
-          $(this).attr('data-content', 'Prix total : ' + totalPrice + '€');
+          var res = numberOfTickets;
+          console.log(res);
+
+          for (var i in res) {
+            var popoverText = "Event: " + "\n" + i + "Number of tickets: " + res[i];
+          }
+
+          $(this).attr('data-content', 'Prix totale : ' + totalPrice + '€');
+          //$(this).attr('data-original-title', popoverText);
           $(this).attr('data-original-title', JSON.stringify(numberOfTickets));
 
           $(this).popover('show');
